@@ -5,6 +5,7 @@
         <meta name="viewport" content="target-densitydpi=device-dpi,width=640,user-scalable=0">
         <title>3d轮播</title>
         <link rel="stylesheet" href="css/gx-animate.min.css?12112"/>
+        <link rel="stylesheet" href="css/swiper.min.css"/>
         <link rel="stylesheet" href="css/style.css?12112"/>
         <link href="css/css.css" rel="stylesheet" type="text/css">
     </head>
@@ -23,14 +24,14 @@
         </div>
         <div class="page-wrap ">
             <!-- 1 首页 -->
-            <div class="page page1 none" data-lock-prev="true" data-lock-next="true">
+            <div class="page page1 page_j none" data-lock-prev="true" data-lock-next="true">
                 <a href="javascript:;" class="btn_my fr"></a>
                 <div class="in exhibition_hall">
                     <div id="" class="roundabout_box">
                         <ul>
-                            <li><a href="javascript:;"><div class="j_tite j_titecd"></div><img src="images/cdcnt.png" alt=""></a></li>
-                            <li><a href="javascript:;"><div class="j_tite j_titehf"></div><img src="images/hfcnt.png" alt=""></a></li>
-                            <li><a href="javascript:;"><div class="j_tite j_titewh"></div><img src="images/whcnt.png" alt=""></a></li>
+                            <li data-city="cd"><img src="images/cdcnt.png" alt=""></li>
+                            <li data-city="hf"><img src="images/hfcnt.png" alt=""></li>
+                            <li data-city="wh"><img src="images/whcnt.png" alt=""></li>
                         </ul>
                     </div>
                     <div class="clear"></div>
@@ -45,6 +46,42 @@
         <div class="tkIn">
             <img src="images/loading.gif" height="60" width="60" alt=""/>
             <p class="tlWrd">拼命加载中，请耐心等待</p>
+        </div>
+    </div>
+    <div class="tk tk-detail tk-detail-cd none">
+        <div class="tkIn">
+            <div class="swiper-container swiper-container-cd">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="images/cd_xw_1.png"></div>
+                    <div class="swiper-slide"><img src="images/cd_xw_2.png"></div>
+                    <div class="swiper-slide"><img src="images/cd_xw_3.png"></div>
+                </div>
+            </div>
+            <a href="javascript:;" class="btn_close"></a>
+        </div>
+    </div>
+    <div class="tk tk-detail tk-detail-hf none">
+        <div class="tkIn">
+            <div class="swiper-container swiper-container-hf">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="images/hf_xw_1.png"></div>
+                    <div class="swiper-slide"><img src="images/hf_xw_2.png"></div>
+                    <div class="swiper-slide"><img src="images/hf_xw_3.png"></div>
+                </div>
+            </div>
+            <a href="javascript:;" class="btn_close"></a>
+        </div>
+    </div>
+    <div class="tk tk-detail tk-detail-wh none">
+        <div class="tkIn">
+            <div class="swiper-container swiper-container-wh">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="images/wh_xw_1.png"></div>
+                    <div class="swiper-slide"><img src="images/wh_xw_2.png"></div>
+                    <div class="swiper-slide"><img src="images/wh_xw_3.png"></div>
+                </div>
+            </div>
+            <a href="javascript:;" class="btn_close"></a>
         </div>
     </div>
     <div id="orientLayer" class="mod-orient-layer">
@@ -68,6 +105,7 @@
     <script src="js/jquery.roundabout.min.js"></script>
     <script src="js/pxloader-images.min.js"></script>
     <script src="js/PageSlider.js"></script>
+    <script src="js/swiper.min.js"></script>
     <script src="js/index.js"></script>
 </body>
 </html>
