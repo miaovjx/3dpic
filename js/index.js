@@ -70,16 +70,10 @@ $(function() {
                         pagination: '.swiper-pagination',
                         slidesPerView: 1,
                         spaceBetween: 0,
-                        effect: 'cube',
-                        cube: {
-                            slideShadows: true,
-                            shadow: true,
-                            shadowOffset: 100,
-                            shadowScale: 0.6
-                        },
+                        effect: 'fade',                    
                         loop: false
                     })
-                    swiper.slideTo(index);
+                    swiper.slideTo(index,500, false)
                 }, 100)
             }
         });
