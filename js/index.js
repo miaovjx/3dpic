@@ -19,11 +19,15 @@ $(function() {
             $('.page1').removeClass('none');
         }, 500);
     });
+
+
+
     /*3d 滚动 +弹窗*/
+    var cindex = 2;
     var jq = jQuery.noConflict();
     jq(document).ready(function() {
         jq('.roundabout_box ul').roundabout({
-            duration: 1000,
+            //  duration: 1000,
             minScale: 0.6,
             autoplay: false,
             autoplayDuration: 5000,
@@ -36,61 +40,54 @@ $(function() {
             enableDrag: true
         });
     });
+    jq('.roundabout_box ul').roundabout("animateToChild", cindex)
     jq('.roundabout-holder li').on('tap', function() {});
     var swipercd = null;
     var swiperwh = null;
     var swiperhf = null;
     $('.roundabout-in-focus').live('tap', function() {
         var city = $(this).attr('data-city');
-        // alert(city)
-        if (city == 'cd') {
-            $('.tk-detail').addClass('none');
-            $('.tk-detail-cd').removeClass('none');
-            if (swipercd) {
-                swipercd.destroy()
-            } else {
-                setTimeout(function() {
-                    swipercd = new Swiper('.swiper-container-cd', {
-                        pagination: '.swiper-pagination',
-                        slidesPerView: 1,
-                        spaceBetween: 0,
-                        loop: true
-                    })
-                }, 100)
-            }
-        } else if (city == 'wh') {
-            $('.tk-detail').addClass('none');
-            $('.tk-detail-wh').removeClass('none');
-            if (swiperwh) {
-                swiperwh.destroy()
-            } else {
-                setTimeout(function() {
-                    swiperwh = new Swiper('.swiper-container-wh', {
-                        pagination: '.swiper-pagination',
-                        slidesPerView: 1,
-                        spaceBetween: 0,
-                        loop: true
-                    })
-                }, 100)
-            }
-        } else if (city == 'hf') {
-            $('.tk-detail').addClass('none');
-            $('.tk-detail-hf').removeClass('none');
-            if (swiperhf) {
-                swiperhf.destroy()
-            } else {
-                setTimeout(function() {
-                    swiperhf = new Swiper('.swiper-container-hf', {
-                        pagination: '.swiper-pagination',
-                        slidesPerView: 1,
-                        spaceBetween: 0,
-                        loop: true
-                    })
-                }, 100)
-            }
-        }
     });
+    btnSlide('.cd_newsbtn_a', '.tk-detail-cd', swipercd, '.swiper-container-cd', 0);
+    btnSlide('.cd_newsbtn_b', '.tk-detail-cd', swipercd, '.swiper-container-cd', 1);
+    btnSlide('.cd_newsbtn_c', '.tk-detail-cd', swipercd, '.swiper-container-cd', 2);
+    btnSlide('.wh_newsbtn_a', '.tk-detail-wh', swiperwh, '.swiper-container-wh', 0);
+    btnSlide('.wh_newsbtn_b', '.tk-detail-wh', swiperwh, '.swiper-container-wh', 1);
+    btnSlide('.wh_newsbtn_c', '.tk-detail-wh', swiperwh, '.swiper-container-wh', 2);
+    btnSlide('.hf_newsbtn_a', '.tk-detail-hf', swiperhf, '.swiper-container-hf', 0);
+    btnSlide('.hf_newsbtn_b', '.tk-detail-hf', swiperhf, '.swiper-container-hf', 1);
+    btnSlide('.hf_newsbtn_c', '.tk-detail-hf', swiperhf, '.swiper-container-hf', 2);
+
+    function btnSlide(btn, tk, swiper, obj, index) {
+        $(btn).on('tap', function() {
+            $('.tk-detail').addClass('none');
+            $(tk).removeClass('none');
+            if (swiper) {
+                swiper.slideTo(index);
+            } else {
+                setTimeout(function() {
+                    swiper = new Swiper(obj, {
+                        pagination: '.swiper-pagination',
+                        slidesPerView: 1,
+                        spaceBetween: 0,
+                        effect: 'cube',
+                        cube: {
+                            slideShadows: true,
+                            shadow: true,
+                            shadowOffset: 100,
+                            shadowScale: 0.6
+                        },
+                        loop: false
+                    })
+                    swiper.slideTo(index);
+                }, 100)
+            }
+        });
+    }
     $('.btn_close').on('tap', function() {
         $(this).closest('.tk').addClass('none');
     });
+
+
+    /*3d 滚动 +弹窗*/
 });
